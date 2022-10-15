@@ -1,4 +1,3 @@
-export const defaultFontColor = '#ffffff';
 export const hoverFontColor = '#74f5f4';
 export const hoverNavBackgroundColor = '#74f5f41a';
 

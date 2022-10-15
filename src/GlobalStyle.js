@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Noto Sans KR', sans-serif;
     background: url('https://hyper-cloud.kr/static/images/background.jpg');
+    color: #ffffff;
   }
   a {
     text-decoration: none;

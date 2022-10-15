@@ -1,27 +1,34 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { defaultFontColor, defaultSideMeneIcon, hoverFontColor, hoverNavBackgroundColor, onClickSideMeneIcon } from '../../Theme';
+import { defaultSideMeneIcon, hoverFontColor, hoverNavBackgroundColor, onClickSideMeneIcon } from '../../Theme';
 import SideBar from './SideBar';
 
-const Nav = () => {
+const Header = () => {
   const [listView, setListView] = useState(false);
-  const navList = ['ABOUT', 'SERVICE', 'XR BUSINESS', 'CONTACT', 'MEDIA', 'H.R', 'LOGIN'];
+  const navList = [
+    { navTitle: 'ABOUT', path: 'about' },
+    { navTitle: 'SERVICE', path: 'service' },
+    { navTitle: 'XR BUSINESS', path: 'xr-business' },
+    { navTitle: 'CONTACT', path: 'contact' },
+    { navTitle: 'MEDIA', path: 'media' },
+    { navTitle: 'H.R', path: 'hr' },
+    { navTitle: 'LOGIN', path: 'login' },
+  ];
+  const navListMap = navList.map(nav => (
+    <NavLink key={nav.navTitle} to={nav.path} className='nav'>
+      {nav.navTitle}
+    </NavLink>
+  ));
 
   return (
     <>
       <NavBar>
         <NavLink to='/' className='logo' />
-        <div className='nav-list'>
-          {navList.map(nav => (
-            <NavLink key={nav} to='' className='nav'>
-              {nav}
-            </NavLink>
-          ))}
-        </div>
+        <div className='nav-list'>{navListMap}</div>
         <SideMenu listView={listView} onClick={() => setListView(!listView)} />
       </NavBar>
-      <SideBar listView={listView} />
+      <SideBar listView={listView} navListMap={navListMap} />
     </>
   );
 };
@@ -57,13 +64,12 @@ const NavBar = styled.div`
       height: 42px;
       padding: 4px 28px;
       border: 3px solid transparent;
+      color: #ffffff;
       font-size: 20px;
-      color: ${defaultFontColor};
 
       &:hover {
         border: 3px solid ${hoverFontColor};
         border-radius: 30px;
-        color: ${hoverFontColor};
         background: ${hoverNavBackgroundColor};
       }
     }
@@ -90,7 +96,6 @@ const NavBar = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    height: 80px;
     padding: 0 20px;
     background: #000000;
 
@@ -118,4 +123,4 @@ const SideMenu = styled.button`
   }
 `;
 
-export default Nav;
+export default Header;
