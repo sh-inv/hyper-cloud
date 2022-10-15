@@ -13,7 +13,7 @@ const Header = () => {
     { navTitle: 'CONTACT', path: 'contact' },
     { navTitle: 'MEDIA', path: 'media' },
     { navTitle: 'H.R', path: 'hr' },
-    { navTitle: 'LOGIN', path: 'login' },
+    { navTitle: 'SIGNIN', path: 'signin' },
   ];
   const navListMap = navList.map(nav => (
     <NavLink key={nav.navTitle} to={nav.path} className='nav'>
@@ -62,12 +62,18 @@ const NavBar = styled.div`
       display: flex;
       align-items: center;
       height: 42px;
-      padding: 4px 28px;
+      padding: 4px 20px;
       border: 3px solid transparent;
       color: #ffffff;
       font-size: 20px;
 
       &:hover {
+        border: 3px solid ${hoverFontColor};
+        border-radius: 30px;
+        background: ${hoverNavBackgroundColor};
+      }
+
+      &.active {
         border: 3px solid ${hoverFontColor};
         border-radius: 30px;
         background: ${hoverNavBackgroundColor};
