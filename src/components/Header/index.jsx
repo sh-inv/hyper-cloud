@@ -16,7 +16,7 @@ const Header = () => {
     { navTitle: 'SIGNIN', path: 'signin' },
   ];
   const navListMap = navList.map(nav => (
-    <NavLink key={nav.navTitle} to={nav.path} className='nav'>
+    <NavLink key={nav.navTitle} to={nav.path} className='nav' onClick={() => setListView(false)}>
       {nav.navTitle}
     </NavLink>
   ));
