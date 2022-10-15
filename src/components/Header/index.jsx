@@ -13,7 +13,7 @@ const Header = () => {
     { navTitle: 'CONTACT', path: 'contact' },
     { navTitle: 'MEDIA', path: 'media' },
     { navTitle: 'H.R', path: 'hr' },
-    { navTitle: 'LOGIN', path: 'login' },
+    { navTitle: 'SIGNIN', path: 'signin' },
   ];
   const navListMap = navList.map(nav => (
     <NavLink key={nav.navTitle} to={nav.path} className='nav'>
