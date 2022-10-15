@@ -1,7 +1,23 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const SideBar = props => {
   const { listView, navListMap } = props;
+
+  useEffect(() => {
+    if (listView) {
+      document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+      return () => {
+        const scrollY = document.body.style.top;
+        document.body.style.cssText = '';
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      };
+    }
+  }, [listView]);
 
   return <NavTab listView={listView}>{navListMap}</NavTab>;
 };
@@ -19,7 +35,7 @@ const NavTab = styled.nav`
     padding: 0 20px;
     transition: all 0.3s;
     transform: translateY(${({ listView }) => (listView ? 'calc(-100% + 84px)' : '0%')});
-    z-index: 20;
+    z-index: 100;
 
     .nav {
       display: flex;
