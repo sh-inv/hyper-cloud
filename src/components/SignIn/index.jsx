@@ -7,13 +7,13 @@ const SignIn = () => {
     <SignInContainer>
       <Link to='/' className='logo' />
       <form className='input-box'>
-        <input type='text' className='input' placeholder='e-mail' autoFocus />
+        <input type='text' className='input' placeholder='e-mail' />
         <input type='password' className='input' placeholder='password' />
         <button className='input login-input'>로그인</button>
       </form>
       <div className='to-signup'>
         회원이 아니라면?
-        <Link to='signup' className='signup'>
+        <Link to='/signup' className='signup'>
           회원가입
         </Link>
       </div>
@@ -26,7 +26,7 @@ const SignInContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 500px;
+  width: 250px;
   height: 400px;
   margin: 50px auto;
 
@@ -42,7 +42,7 @@ const SignInContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 250px;
+    width: 100%;
     height: 150px;
 
     .input {
@@ -72,6 +72,7 @@ const SignInContainer = styled.div`
     color: ${hoverFontColor};
 
     .signup {
+      margin-left: 5px;
       color: ${hoverFontColor};
       text-decoration: underline;
     }
