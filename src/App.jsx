@@ -13,8 +13,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/*' element={<Main />}></Route>
-        <Route path='signin' element={<SignIn />} />
-        <Route path='signup' element={<SignUp />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/signup' element={<SignUp />} />
       </Routes>
       <ScrollToTopBtn />
     </>

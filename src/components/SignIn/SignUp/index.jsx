@@ -12,6 +12,9 @@ const SignUp = () => {
         <input type='password' className='input' placeholder='confirm password' />
         <button className='input login-input'>회원가입</button>
       </form>
+      <Link to='/signin' className='signin'>
+        로그인하러가기
+      </Link>
     </SignInContainer>
   );
 };
@@ -62,6 +65,14 @@ const SignInContainer = styled.div`
       background: ${hoverFontColor};
       cursor: pointer;
     }
+  }
+
+  .signin {
+    font-size: 14px;
+    color: ${hoverFontColor};
+    margin-left: 5px;
+    color: ${hoverFontColor};
+    text-decoration: underline;
   }
 `;
 
