@@ -22,13 +22,15 @@ const SignIn = () => {
 };
 
 const SignInContainer = styled.div`
+  position: fixed;
+  top: calc(50% - 200px);
+  left: calc(50% - 125px);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 250px;
   height: 400px;
-  margin: 50px auto;
 
   .logo {
     display: inline-block;
