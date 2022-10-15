@@ -1,11 +1,18 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { defaultSideMeneIcon, hoverFontColor, hoverNavBackgroundColor, onClickSideMeneIcon } from '../../Theme';
 import SideBar from './SideBar';
 
 const Header = () => {
   const [listView, setListView] = useState(false);
+  const [isSigninPage, setIsSigninPage] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    location.pathname.indexOf('sign') > -1 ? setIsSigninPage(true) : setIsSigninPage(false);
+  }, [location]);
+
   const navList = [
     { navTitle: 'ABOUT', path: 'about' },
     { navTitle: 'SERVICE', path: 'service' },
@@ -23,7 +30,7 @@ const Header = () => {
 
   return (
     <>
-      <NavBar>
+      <NavBar isSigninPage={isSigninPage}>
         <NavLink to='/' className='logo' />
         <div className='nav-list'>{navListMap}</div>
         <SideMenu listView={listView} onClick={() => setListView(!listView)} />
@@ -34,7 +41,7 @@ const Header = () => {
 };
 
 const NavBar = styled.div`
-  display: flex;
+  display: ${({ isSigninPage }) => (isSigninPage ? 'none' : 'flex')};
   justify-content: space-between;
   align-items: center;
   max-width: 1536px;
