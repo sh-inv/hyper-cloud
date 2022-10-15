@@ -10,7 +10,7 @@ const SignUp = () => {
         <input type='text' className='input' placeholder='e-mail' />
         <input type='password' className='input' placeholder='password' />
         <input type='password' className='input' placeholder='confirm password' />
-        <button className='input login-input'>회원가입</button>
+        <input type='submit' className='input login-input' value='회원가입' />
       </form>
       <Link to='/signin' className='signin'>
         로그인하러가기
@@ -55,8 +55,7 @@ const SignInContainer = styled.div`
       transition: all ease-in-out 0.3s;
 
       &:focus {
-        border: 3px solid ${hoverFontColor};
-        outline: none;
+        outline: 3px solid ${hoverFontColor};
       }
     }
 
