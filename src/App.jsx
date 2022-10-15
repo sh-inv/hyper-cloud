@@ -3,6 +3,7 @@ import GlobalStyle from './GlobalStyle';
 import Header from './components/Header';
 import Main from './pages';
 import SignIn from './components/SignIn';
+import ScrollToTopBtn from './components/ScrollToTopBtn';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/*' element={<Main />}></Route>
         <Route path='signin' element={<SignIn />} />
       </Routes>
+      <ScrollToTopBtn />
     </>
   );
 };

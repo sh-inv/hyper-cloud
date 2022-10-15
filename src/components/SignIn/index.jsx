@@ -12,7 +12,7 @@ const SignIn = () => {
         <button className='input login-input'>로그인</button>
       </form>
       <div className='to-signup'>
-        회원이 아니라면?{' '}
+        회원이 아니라면?
         <Link to='signup' className='signup'>
           회원가입
         </Link>
